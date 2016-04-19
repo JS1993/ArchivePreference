@@ -16,12 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+}
+- (IBAction)save:(UIButton *)sender {
+    //取出偏好设置单例
+    NSUserDefaults* defaults=[NSUserDefaults standardUserDefaults];
+    //设置内容
+    [defaults setObject:@"jiangsu" forKey:@"userName"];
+    [defaults setObject:@"123" forKey:@"userKey"];
+    [defaults setBool:YES forKey:@"remember"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)read:(UIButton *)sender {
+    //取出内容
+    NSString* userName=[[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    NSLog(@"%@",userName);
+    
 }
 
 @end
